@@ -11160,3 +11160,80 @@ footer a:hover, footer a:active, footer a:focus {
     max-width: 17rem;
   }
 }
+/* ==========================================================
+   Harudooal Theme Overrides — 새별의 컬러 팔레트 192
+   팔레트: #29ACA6, #78C3B6, #B8CBB7, #D8D4C7, #EFEFE9, #6CD9DD
+   ========================================================== */
+:root {
+  /* 브랜드 팔레트(커스텀 변수) */
+  --haru-teal-600: #29ACA6; /* 핵심 포인트 */
+  --haru-teal-400: #78C3B6; /* 서브 포인트 */
+  --haru-sage-300: #B8CBB7; /* 중간 배경/보조 */
+  --haru-sand-200: #D8D4C7; /* 카드 배경/보더 */
+  --haru-eggshell: #EFEFE9; /* 라이트 배경 */
+  --haru-aqua-400: #6CD9DD; /* 밝은 액센트 */
+  --haru-text: #1F2937;      /* 본문 텍스트 */
+
+  /* 부트스트랩 변수 재정의(가능한 곳은 변수 기반) */
+  --bs-body-color: var(--haru-text);
+  --bs-link-color: var(--haru-teal-600);
+  --bs-link-hover-color: var(--haru-teal-400);
+}
+
+/* 기본 폰트와 배경 톤 (사이트 전역) */
+body { font-family: 'Noto Sans KR', var(--bs-body-font-family); color: var(--haru-text); }
+
+/* 텍스트 그라디언트: 메인 타이틀/아이콘에 사용 */
+.text-gradient {
+  background: linear-gradient(45deg, var(--haru-teal-600), var(--haru-aqua-400));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* 배경 그라디언트: Quote/CTA 등 */
+.bg-gradient-primary-to-secondary {
+  background: linear-gradient(120deg, var(--haru-teal-600) 0%, var(--haru-teal-400) 40%, var(--haru-aqua-400) 100%) !important;
+}
+
+/* 라이트 배경을 팔레트 톤으로 부드럽게 */
+.bg-light { background-color: var(--haru-eggshell) !important; }
+
+/* 카드 테두리/배경 톤 보정 */
+.card { border-color: var(--haru-sand-200); }
+
+/* 네비게이션 링크 호버 컬러 */
+.navbar-light .navbar-nav .nav-link:hover { color: var(--haru-teal-600); }
+
+/* 버튼 토큰 재정의: Primary & Outline Dark를 브랜드 톤으로 */
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--haru-teal-600);
+  --bs-btn-border-color: var(--haru-teal-600);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--haru-teal-400);
+  --bs-btn-hover-border-color: var(--haru-teal-400);
+  --bs-btn-focus-shadow-rgb: 41, 172, 166; /* 대략적인 그림자 컬러 */
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--haru-teal-400);
+  --bs-btn-active-border-color: var(--haru-teal-400);
+}
+
+.btn-outline-dark {
+  --bs-btn-color: var(--haru-teal-600);
+  --bs-btn-border-color: var(--haru-teal-600);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--haru-teal-600);
+  --bs-btn-hover-border-color: var(--haru-teal-600);
+}
+
+/* 양식 포커스/체크 컬러를 브랜드와 맞춤 (시각적 일관성) */
+.form-control:focus { border-color: var(--haru-teal-400); box-shadow: 0 0 0 0.25rem rgba(41, 172, 166, 0.25); }
+.form-select:focus { border-color: var(--haru-teal-400); box-shadow: 0 0 0 0.25rem rgba(41, 172, 166, 0.25); }
+.form-check-input:checked { background-color: var(--haru-teal-600); border-color: var(--haru-teal-600); }
+.form-check-input:focus { border-color: var(--haru-teal-400); box-shadow: 0 0 0 0.25rem rgba(41, 172, 166, 0.25); }
+
+/* 장식 SVG 그라디언트 컬러 연결 (템플릿의 <stop>에 클래스가 지정됨) */
+.gradient-start-color { stop-color: var(--haru-teal-400); }
+.gradient-end-color { stop-color: var(--haru-aqua-400); }
+
+/* 섹션 앵커 보정: 고정 네비게이션 높이만큼 스크롤 여백 */
+section { scroll-margin-top: 80px; }
