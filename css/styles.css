@@ -11263,3 +11263,56 @@ section { scroll-margin-top: 80px; }
   fill: var(--haru-sand-300);
   opacity:.22;
 }
+
+/* ===============================
+   Navbar color customization
+   =============================== */
+   #mainNav {
+    background-color: var(--haru-sand-300); /* 샌드 톤(#D8D4C7) */
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    transition: background-color .2s ease, box-shadow .2s ease;
+  }
+  #mainNav .navbar-brand { color: var(--haru-teal-600); }
+  #mainNav .navbar-brand:hover { color: var(--haru-aqua-400); }
+  
+  #mainNav .nav-link { color: var(--haru-text); }
+  #mainNav .nav-link:hover { color: var(--haru-teal-600); }
+  
+  #mainNav .btn.btn-primary {
+    background-color: var(--haru-teal-600);
+    border-color: var(--haru-teal-600);
+  }
+  #mainNav .btn.btn-primary:hover {
+    background-color: var(--haru-teal-400);
+    border-color: var(--haru-teal-400);
+  }
+
+  /* ===============================
+   Hero title fixes (clipping/alignment)
+   =============================== */
+.hero-title{
+  line-height: 1.15;        /* 위/아래 잘림 방지 */
+  word-break: keep-all;     /* 한글 단어 단위 유지 */
+}
+.hero-title .line-1,
+.hero-title .line-2{
+  padding: .08em 0;         /* 그라디언트 텍스트 여유 공간 */
+}
+
+/* (선택) 큰 화면에서 2번째 줄만 들여쓰기 하고 싶을 때:
+   HTML의 두번째 줄 <span>에 'indent-lg' 클래스를 추가하세요. */
+@media (min-width: 992px){
+  .hero-title .line-2.indent-lg{ margin-left: 3rem; }
+}
+
+/* (선택) 특정 줄만 오른쪽 정렬하고 싶을 때:
+   HTML의 해당 span에 'text-lg-end'를 추가하세요. 예) <span class="line-2 ... text-lg-end"> */
+@media (min-width: 992px){
+  .hero-title .line-1.text-lg-end,
+  .hero-title .line-2.text-lg-end{ text-align: right; }
+}
+
+/* 초소형 화면에서 폰트 약간 축소해 줄바꿈 시 잘림 방지 */
+@media (max-width: 360px){
+  .hero-title{ font-size: calc(1.8rem + 3.2vw); }
+}
