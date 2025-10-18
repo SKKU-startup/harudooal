@@ -11231,9 +11231,35 @@ body { font-family: 'Noto Sans KR', var(--bs-body-font-family); color: var(--har
 .form-check-input:checked { background-color: var(--haru-teal-600); border-color: var(--haru-teal-600); }
 .form-check-input:focus { border-color: var(--haru-teal-400); box-shadow: 0 0 0 0.25rem rgba(41, 172, 166, 0.25); }
 
-/* 장식 SVG 그라디언트 컬러 연결 (템플릿의 <stop>에 클래스가 지정됨) */
 .gradient-start-color { stop-color: var(--haru-teal-400); }
 .gradient-end-color { stop-color: var(--haru-aqua-400); }
 
-/* 섹션 앵커 보정: 고정 네비게이션 높이만큼 스크롤 여백 */
 section { scroll-margin-top: 80px; }
+/* ================================
+   Harudooal Theme — Custom Colors
+   ================================ */
+:root{
+  /* Palette from 새벽의 컬러 팔레트 192 */
+  --haru-teal-600:#29ACA6;   /* primary mint */
+  --haru-teal-400:#78C3B6;   /* soft mint */
+  --haru-sage-300:#B8CBB7;   /* sage */
+  --haru-sand-300:#D8D4C7;   /* sand */
+  --haru-ivory:#EFEFE9;      /* ivory bg */
+  --haru-aqua-400:#6CD9DD;   /* aqua accent */
+}
+
+/* Features 섹션 아이콘 컬러 */
+#features .icon-feature{
+  color: var(--haru-teal-600);
+  transition: color .2s ease;
+}
+#features .icon-feature:hover{
+  color: var(--haru-aqua-400);
+}
+
+/* 장식 도형(좌하단 X / 우상단 점) 테마 컬러로 */
+.shape-1 rect{ fill: var(--haru-sand-300); opacity:.18; }
+.shape-2 circle{
+  fill: var(--haru-sand-300);
+  opacity:.22;
+}
