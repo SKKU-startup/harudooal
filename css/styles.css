@@ -11316,3 +11316,143 @@ section { scroll-margin-top: 80px; }
 @media (max-width: 360px){
   .hero-title{ font-size: calc(1.8rem + 3.2vw); }
 }
+
+/* ==================================
+   Navbar link states (theme palette)
+   ================================== */
+   #mainNav .nav-link {
+    color: var(--haru-text);
+    transition: color .15s ease;
+  }
+  #mainNav .nav-link:hover,
+  #mainNav .nav-link:focus {
+    color: var(--haru-teal-600);
+    text-decoration: none;
+  }
+  
+  /* Active/current page states (Scrollspy, aria-current 등) */
+  #mainNav .nav-link.active,
+  #mainNav .nav-link.show,
+  #mainNav .navbar-nav .nav-link.active,
+  #mainNav .navbar-nav .nav-link[aria-current="page"] {
+    color: var(--haru-teal-600);
+    font-weight: 700;
+  }
+  
+  /* (선택) 활성 링크 밑줄 인디케이터 */
+  #mainNav .navbar-nav .nav-link {
+    position: relative;
+  }
+  #mainNav .navbar-nav .nav-link.active::after,
+  #mainNav .navbar-nav .nav-link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: var(--haru-teal-600);
+    border-radius: 1px;
+  }
+  
+  /* 네비게이션 영역에서 visited 기본색 제거 */
+  #mainNav .nav-link:visited {
+    color: var(--haru-text);
+  }
+/* =========================================================
+   Harudooal — Global Theme Overrides (non-destructive)
+   ========================================================= */
+:root{
+  /* Brand palette */
+  --haru-teal-600:#29ACA6;
+  --haru-teal-400:#78C3B6;
+  --haru-aqua-400:#6CD9DD;
+  --haru-sage-300:#B8CBB7;
+  --haru-sand-300:#D8D4C7;
+  --haru-ivory:#EFEFE9;
+  --haru-text:#2A2E2B;
+
+  /* Map Bootstrap tokens to brand */
+  --bs-primary: var(--haru-teal-600);
+  --bs-primary-rgb: 41,172,166;
+  --bs-link-color: var(--haru-teal-600);
+  --bs-link-hover-color: #1e7d78;            /* darker teal for hover */
+  --bs-focus-ring-color: rgba(41,172,166,.25);
+}
+
+/* Navbar — background & link states */
+#mainNav{
+  background-color: var(--haru-sand-300);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+#mainNav .navbar-brand{ color: var(--haru-teal-600); }
+#mainNav .navbar-brand:hover{ color: var(--haru-aqua-400); }
+
+/* Navbar link states (active/visited/hover) */
+#mainNav .nav-link{ color: var(--haru-text); text-decoration: none; transition: color .15s ease; }
+#mainNav .nav-link:hover,#mainNav .nav-link:focus{ color: var(--haru-teal-600); }
+#mainNav .nav-link:visited{ color: var(--haru-text); }
+#mainNav .nav-link.active,
+#mainNav .nav-link.show,
+#mainNav .navbar-nav .nav-link.active,
+#mainNav .navbar-nav .nav-link[aria-current="page"]{ color: var(--haru-teal-600); font-weight:700; }
+#mainNav .navbar-nav .nav-link{ position:relative; }
+#mainNav .navbar-nav .nav-link.active::after,
+#mainNav .navbar-nav .nav-link[aria-current="page"]::after{
+  content:""; position:absolute; left:0; bottom:-6px; width:100%; height:2px;
+  background: var(--haru-teal-600); border-radius:1px;
+}
+
+/* Buttons — primary & outline primary in brand colors */
+.btn-primary{
+  --bs-btn-color:#fff;
+  --bs-btn-bg: var(--haru-teal-600);
+  --bs-btn-border-color: var(--haru-teal-600);
+  --bs-btn-hover-bg: var(--haru-teal-400);
+  --bs-btn-hover-border-color: var(--haru-teal-400);
+  --bs-btn-focus-shadow-rgb: 41,172,166;
+  --bs-btn-active-bg: #1e7d78;
+  --bs-btn-active-border-color:#1e7d78;
+}
+.btn-outline-primary{
+  --bs-btn-color: var(--haru-teal-600);
+  --bs-btn-border-color: var(--haru-teal-600);
+  --bs-btn-hover-color:#fff;
+  --bs-btn-hover-bg: var(--haru-teal-600);
+  --bs-btn-hover-border-color: var(--haru-teal-600);
+  --bs-btn-focus-shadow-rgb: 41,172,166;
+  --bs-btn-active-bg: var(--haru-teal-600);
+  --bs-btn-active-border-color: var(--haru-teal-600);
+}
+
+/* Forms — focus color to brand */
+.form-control:focus,
+.form-select:focus{
+  border-color: var(--haru-teal-400);
+  box-shadow: 0 0 0 0.25rem rgba(41,172,166,.25);
+}
+
+/* Hero title — clipping & line control */
+.hero-title{ line-height:1.15; word-break:keep-all; }
+.hero-title .line-1,.hero-title .line-2{ padding:.08em 0; }
+@media (max-width:360px){ .hero-title{ font-size:calc(1.8rem + 3.2vw); } }
+@media (min-width:992px){ .hero-title .line-2.indent-lg{ margin-left:3rem; } }
+
+/* Text gradient — use brand gradient */
+.text-gradient{
+  background: linear-gradient(45deg, var(--haru-teal-600), var(--haru-aqua-400));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+/* Features icons — brand color & hover */
+#features .icon-feature{ color: var(--haru-teal-600); transition: color .2s ease; }
+#features .icon-feature:hover{ color: var(--haru-aqua-400); }
+
+/* Decorative shapes — X and small circle to sand tone */
+.shape-1 rect{ fill: var(--haru-sand-300); opacity:.18; }
+.shape-2 circle{ fill: var(--haru-sand-300); opacity:.22; }
+
+/* Device mockup video/img reset (sizing safety for GIFs) */
+.masthead .device .screen video,
+.masthead .device .screen img{ max-width:100%; height:100%; object-fit:cover; }
