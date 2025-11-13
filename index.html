@@ -409,7 +409,7 @@
           <div class="col-lg-8">
             <div class="card border-0 shadow rounded-xxl">
               <div class="card-body p-4 p-md-5">
-                <form id="contactForm">
+                <form id="contactForm" action="mailto:harudooal@gmail.com" method="POST" enctype="text/plain">
                   <div class="form-floating mb-3">
                     <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
                     <label for="name">이름 / 기관</label>
@@ -482,22 +482,7 @@
 
     <!-- Lightweight form handler (no external service) -->
     <script>
-      const form = document.getElementById('contactForm');
-      const successMsg = document.getElementById('submitSuccessMessage');
-      const errorMsg = document.getElementById('submitErrorMessage');
-      form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        // TODO: 여기에 실제 제출 로직(예: Fetch로 서버 엔드포인트 호출)을 연결하세요.
-        try {
-          // 데모: 성공 메시지 표시
-          successMsg.classList.remove('d-none');
-          errorMsg.classList.add('d-none');
-          form.reset();
-        } catch (err) {
-          successMsg.classList.add('d-none');
-          errorMsg.classList.remove('d-none');
-        }
-      });
+      // TODO: 서버 혹은 외부 서비스 연동 시 여기에 추가 스크립트를 작성하세요.
     </script>
   </body>
 </html>
