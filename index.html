@@ -409,23 +409,24 @@
           <div class="col-lg-8">
             <div class="card border-0 shadow rounded-xxl">
               <div class="card-body p-4 p-md-5">
-                <form id="contactForm" action="mailto:harudooal@gmail.com" method="POST" enctype="text/plain">
+                <form id="contactForm" action="https://formspree.io/f/xjkjkpnr" method="POST">
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
+                    <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required />
                     <label for="name">이름 / 기관</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
+                    <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" required />
                     <label for="email">이메일</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input class="form-control" id="phone" type="tel" placeholder="010-0000-0000" />
+                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="010-0000-0000" />
                     <label for="phone">연락처</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <textarea class="form-control" id="message" placeholder="프로젝트/제휴 내용을 남겨주세요" style="height: 10rem" required></textarea>
+                    <textarea class="form-control" id="message" name="message" placeholder="프로젝트/제휴 내용을 남겨주세요" style="height: 10rem" required></textarea>
                     <label for="message">메시지</label>
                   </div>
+                  <input type="hidden" name="_subject" value="하루두알 웹사이트 문의" />
                   <div class="d-grid">
                     <button class="btn btn-primary rounded-pill btn-lg" id="submitButton" type="submit">보내기</button>
                   </div>
@@ -482,7 +483,37 @@
 
     <!-- Lightweight form handler (no external service) -->
     <script>
-      // TODO: 서버 혹은 외부 서비스 연동 시 여기에 추가 스크립트를 작성하세요.
+      const form = document.getElementById('contactForm');
+      const successMsg = document.getElementById('submitSuccessMessage');
+      const errorMsg = document.getElementById('submitErrorMessage');
+
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const action = form.getAttribute('action');
+
+        try {
+          const response = await fetch(action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json',
+            },
+          });
+
+          if (response.ok) {
+            successMsg?.classList.remove('d-none');
+            errorMsg?.classList.add('d-none');
+            form.reset();
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (err) {
+          successMsg?.classList.add('d-none');
+          errorMsg?.classList.remove('d-none');
+        }
+      });
     </script>
   </body>
 </html>
